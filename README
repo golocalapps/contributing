@@ -1,3 +1,66 @@
-COMING SOON
+GIT WORKFLOW
 
-A tutorial on standards and workflows for contributing to GoLocalApps projects.
+What follows is a tutorial on standards and workflows for contributing to
+GoLocalApps projects.  This is NOT a tutorial on how to use git and the commands
+giving here should not always be copied verbatim.  You should learn what each
+command is doing and what its context is here.
+
+FORKING THE PROJECT
+
+First, read the following articles on forking and syncing.
+
+    * Fork A Repo <https://help.github.com/articles/fork-a-repo/>
+    * Syncing a fork <https://help.github.com/articles/syncing-a-fork/>
+
+Now create a fork of the project you will be working on.  As an example, let's
+fork this one <https://github.com/golocalapps/contributing>.  Once forked, your
+copy of the repository should live at:
+
+    https://github.com/YOUR_USERNAME/contributing
+
+Once it's forked, clone your fork to your local machine.
+
+    git clone git@github.com:YOUR_USERNAME/contributing.git
+    git remote add upstream git@github.com:golocalapps/contributing.git
+
+The above commands only need to be issued once, and when you do so your fork
+should already be in sync, but make sure you sync often.  Ideally, you should
+sync every time you begin working with your repo.
+
+SYNCING YOUR FORK
+
+    git fetch upstream
+    git checkout master
+    git merge upstream/master
+    git push origin master
+
+CREATING A TOPIC BRANCH
+
+Now that you're in sync you're ready to begin working.  Let's start by adding
+your name to the AUTHORS file.  We're going to create a new topic branch, make
+our changes, then push our topic branch to Github and issue a pull request for
+code review.
+
+    git checkout master     # make sure our new topic branch derives from master
+    git branch add-author   # create our new topic branch
+    git checkout add-author # switch to our new topic branch
+
+Open the AUTHORS file in your favorite text editor and add your name and email
+address.  Once you're finished, stage, commit and push your changes.
+
+    git add AUTHORS
+    git commit -m 'Add my name and email address to AUTHORS file.'
+
+SUBMITTING A PULL REQUEST
+
+When your branch is ready to be submitted for review, run the following:
+
+    git push origin add-author
+
+You can then see your branches at:
+
+    https://github.com/YOUR_USERNAME/contributing/branches
+
+To the right of the branch named "add-author" you should see a button titled
+"New pull request."  Click that and fill out the form to submit your pull
+request to the maintainers who will review and (most likely) merge your branch.
